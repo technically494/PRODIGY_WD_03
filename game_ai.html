@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>XOLeague - Play vs AI</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-image: url('images/bg.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      color: white;
+    }
+
+    .container {
+      text-align: center;
+      padding: 60px 20px;
+      backdrop-filter: brightness(0.9);
+    }
+
+    .title {
+      font-size: 48px;
+      font-weight: bold;
+      margin-bottom: 30px;
+      color: #ffffff;
+      text-shadow: 0 0 10px #00c9ff, 0 0 20px #92fe9d;
+    }
+
+    input[type="text"] {
+      padding: 12px 20px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      margin-right: 10px;
+      width: 280px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+
+    button {
+      padding: 14px 28px;
+      font-size: 18px;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #00c9ff, #92fe9d);
+      color: #000;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(0, 201, 255, 0.4);
+      transition: all 0.3s ease-in-out;
+    }
+
+    button:hover {
+      background: linear-gradient(135deg, #92fe9d, #00c9ff);
+      transform: scale(1.05);
+      box-shadow: 0 12px 30px rgba(0, 201, 255, 0.6);
+    }
+
+    .player-info {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      font-size: 20px;
+      margin: 20px 0;
+    }
+
+    .board {
+      margin: 20px auto;
+      width: 300px;
+      height: 300px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 5px;
+    }
+
+    .result {
+      font-size: 24px;
+      margin: 20px 0;
+      text-shadow: 0 0 10px #fff;
+    }
+
+    .scoreboard {
+      margin-top: 30px;
+      font-size: 18px;
+    }
+
+    .back-btn {
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1 class="title">Player vs AI</h1>
+
+    <div id="name-input-section">
+      <input type="text" id="playerName" placeholder="Enter Player's Name" />
+      <button onclick="startGame()">Start Game</button>
+    </div>
+
+    <div id="game-section" style="display: none;">
+      <div class="player-info">
+        <div class="player">👤 <span id="playerDisplay"></span> (X)</div>
+        <div class="player">🤖 AI (O)</div>
+      </div>
+
+      <div id="board" class="board"></div>
+      <div id="result" class="result"></div>
+      <button onclick="resetGame()">Play Again</button>
+    </div>
+
+    <div class="scoreboard">
+      <p>Your Wins: <span id="playerScore">0</span></p>
+      <p>AI Wins: <span id="aiScore">0</span></p>
+    </div>
+
+    <button class="back-btn" onclick="window.location.href='index.html'">Back to Home</button>
+  </div>
+
+  <script src="js/ai.js"></script>
+</body>
+</html>
